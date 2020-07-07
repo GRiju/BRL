@@ -1,0 +1,609 @@
+
+-- targyadatok, garages, houses, races, stunts, zene tábla külön
+
+
+
+CREATE TABLE IF NOT EXISTS `achievements` (
+  `Name` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `knifes` int(11) NOT NULL DEFAULT '0',
+  `9mm` 
+
+int(11) NOT NULL DEFAULT '0',
+  `Deagle` int(11) NOT NULL DEFAULT '0',
+  `AK47` int(11) 
+
+NOT NULL DEFAULT '0',
+  `Deaths` int(11) NOT NULL DEFAULT '0',
+  `Policekills` int(11) 
+
+NOT NULL DEFAULT '0',
+  `Armykills` int(11) NOT NULL DEFAULT '0',
+  `Rodkills` int(11) 
+
+NOT NULL DEFAULT '0',
+  `SMG` int(11) NOT NULL DEFAULT '0',
+  `RaceRecords` int(11) NOT 
+
+NULL DEFAULT '0',
+  `Racegold` int(11) NOT NULL DEFAULT '0',
+  `Racesilver` int(11) NOT 
+
+NULL DEFAULT '0',
+  `Racebronze` int(11) NOT NULL DEFAULT '0',
+  `dmwins` int(11) NOT 
+
+NULL DEFAULT '0',
+  `vehdrives` int(11) NOT NULL DEFAULT '0',
+  `shoprob` int(11) NOT 
+
+NULL DEFAULT '0',
+  `jails` int(11) NOT NULL DEFAULT '0',
+  `elsohaz` int(11) NOT NULL 
+
+DEFAULT '0',
+  `elsokocsi` int(11) NOT NULL DEFAULT '0',
+  `elsobiz` int(11) NOT NULL 
+
+DEFAULT '0',
+  `leaderesm` int(11) NOT NULL DEFAULT '0',
+  `elsoclantag` int(11) NOT 
+
+NULL DEFAULT '0',
+  `elsoclan` int(11) NOT NULL DEFAULT '0',
+  `horgaszat` int(11) NOT 
+
+NULL DEFAULT '0',
+  `reakcio` int(11) NOT NULL DEFAULT '0',
+  `area` int(11) NOT NULL
+) 
+
+ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `acommands` (
+  `Admin` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `Command` varchar(50) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL,
+  `TargetPlayer` varchar(24) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL DEFAULT 'NONE',
+  `Date` varchar(70) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `autoadatok` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  
+
+`Name` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `vehid` 
+
+int(3) NOT NULL,
+  `ar` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM  DEFAULT 
+
+CHARSET=latin1 AUTO_INCREMENT=0;
+
+
+
+CREATE TABLE IF NOT EXISTS `bercars` (
+  `slot` int(11) NOT NULL,
+  `Tulaj` varchar(24) 
+
+CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `vehid` int(3) NOT NULL,
+  `X` 
+
+float NOT NULL,
+  `Y` float NOT NULL,
+  `Z` float NOT NULL,
+  `A` float NOT NULL,
+  
+
+`color1` int(3) NOT NULL,
+  `color2` int(3) NOT NULL,
+  `ora` int(11) NOT NULL,
+  `perc` 
+
+int(2) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=koi8r COLLATE=koi8r_bin;
+
+
+
+CREATE TABLE IF NOT EXISTS `business` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  
+
+`Propertyname` varchar(64) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`Tulaj` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `Ar` int
+
+(10) NOT NULL,
+  `Termeles` int(10) NOT NULL,
+  `X` float NOT NULL,
+  `Y` float NOT 
+
+NULL,
+  `Z` float NOT NULL,
+  `Osszeg` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) 
+
+ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+
+
+
+CREATE TABLE IF NOT EXISTS `cars` (
+  `slot` int(2) NOT NULL,
+  `Level` int(11) NOT 
+
+NULL,
+  `Fuel` int(11) NOT NULL DEFAULT '50',
+  `Tulaj` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `Tarstulaj` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `VehID` int(3) NOT NULL,
+  `X` float NOT NULL,
+  
+
+`Y` float NOT NULL,
+  `Z` float NOT NULL,
+  `A` float NOT NULL,
+  `VW` int(3) NOT NULL,
+  
+
+`color1` int(3) NOT NULL,
+  `color2` int(3) NOT NULL,
+  `tuning1` int(5) NOT NULL,
+  
+
+`tuning2` int(5) NOT NULL,
+  `tuning3` int(5) NOT NULL,
+  `tuning4` int(5) NOT NULL,
+  
+
+`tuning5` int(5) NOT NULL,
+  `tuning6` int(5) NOT NULL,
+  `tuning7` int(5) NOT NULL,
+  
+
+`tuning8` int(5) NOT NULL,
+  `tuning9` int(5) NOT NULL,
+  `tuning10` int(5) NOT NULL,
+  
+
+`object1` int(7) NOT NULL,
+  `object2` int(7) NOT NULL,
+  `paintjob` int(5) NOT NULL,
+  
+
+`rendszam` varchar(15) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`weapslot1` int(3) NOT NULL,
+  `weapammo1` int(11) NOT NULL,
+  `weapslot2` int(3) NOT 
+
+NULL,
+  `weapammo2` int(11) NOT NULL,
+  `weapslot3` int(3) NOT NULL,
+  `weapammo3` int
+
+(11) NOT NULL,
+  `weapslot4` int(3) NOT NULL,
+  `weapammo4` int(11) NOT NULL,
+  
+
+`weapslot5` int(3) NOT NULL,
+  `weapammo5` int(11) NOT NULL,
+  `weapslot6` int(3) NOT 
+
+NULL,
+  `weapammo6` int(11) NOT NULL,
+  `weapslot7` int(3) NOT NULL,
+  `weapammo7` int
+
+(11) NOT NULL,
+  `weapslot8` int(3) NOT NULL,
+  `weapammo8` int(11) NOT NULL,
+  
+
+`weapslot9` int(3) NOT NULL,
+  `weapammo9` int(11) NOT NULL,
+  `weapslot10` int(3) NOT 
+
+NULL,
+  `weapammo10` int(11) NOT NULL,
+  `Armour` int(11) NOT NULL,
+  `Armourammo` float 
+
+NOT NULL,
+  `object1X` float NOT NULL,
+  `object1Y` float NOT NULL,
+  `object1Z` float 
+
+NOT NULL,
+  `object1RX` float NOT NULL,
+  `object1RY` float NOT NULL,
+  `object1RZ` 
+
+float NOT NULL,
+  `object2X` float NOT NULL,
+  `object2Y` float NOT NULL,
+  `object2Z` 
+
+float NOT NULL,
+  `object2RX` float NOT NULL,
+  `object2RY` float NOT NULL,
+  
+
+`object2RZ` float NOT NULL,
+  `Date` varchar(60) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `changenames` (
+  `OldName` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `FirstName` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `Date` varchar(40) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `clancars` (
+  `slot` int(3) NOT NULL,
+  `ClanTulaj` 
+
+varchar(30) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `VehID` int(3) 
+
+NOT NULL,
+  `X` float NOT NULL,
+  `Y` float NOT NULL,
+  `Z` float NOT NULL,
+  `A` float 
+
+NOT NULL,
+  `color1` int(3) NOT NULL,
+  `color2` int(3) NOT NULL,
+  `VW` int(3) NOT 
+
+NULL,
+  `tuning1` int(5) NOT NULL,
+  `tuning2` int(5) NOT NULL,
+  `tuning3` int(5) NOT 
+
+NULL,
+  `tuning4` int(5) NOT NULL,
+  `tuning5` int(5) NOT NULL
+) ENGINE=MyISAM DEFAULT 
+
+CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `clans` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  
+
+`ClanName` varchar(30) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanLeader` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank1` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank2` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank3` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank4` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank5` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank6` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank7` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank8` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank9` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanRank10` varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`ClanSkin1` int(4) NOT NULL,
+  `ClanSkin2` int(4) NOT NULL,
+  `ClanSkin3` int(3) NOT 
+
+NULL,
+  `ClanSkin4` int(3) NOT NULL,
+  `ClanSkin5` int(3) NOT NULL,
+  `ClanSkin6` int
+
+(11) NOT NULL,
+  `ClanSkin7` int(11) NOT NULL,
+  `ClanSkin8` int(11) NOT NULL,
+  
+
+`ClanSkin9` int(3) NOT NULL,
+  `ClanSkin10` int(3) NOT NULL,
+  `invitejog` int(11) NOT 
+
+NULL,
+  `kickjog` int(11) NOT NULL,
+  `parkoljog` int(11) NOT NULL,
+  `rangadjog` int
+
+(11) NOT NULL,
+  `kihivjog` int(11) NOT NULL,
+  `Wins` int(4) NOT NULL,
+  `Loss` int(4) 
+
+NOT NULL,
+  `Kassza` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM  DEFAULT 
+
+CHARSET=latin1 AUTO_INCREMENT=0 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `eladasok` (
+  `Elado` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `Vevo` varchar(24) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL,
+  `Slot` int(3) NOT NULL,
+  `Vehid` int(3) NOT NULL,
+  
+
+`Datum` varchar(40) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`Micsinalt` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL
+) 
+
+ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `features` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  
+
+`PlayerName` varchar(30) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`AdminPlayer` varchar(30) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`Command` varchar(70) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `cause` 
+
+varchar(150) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `Integer` int
+
+(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 
+
+AUTO_INCREMENT=1 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `Moneylog` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  
+
+`Name` varchar(23) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  
+
+`Lastmoney` int(11) NOT NULL,
+  `Newmoney` int(11) NOT NULL,
+  `Balance` int(11) NOT 
+
+NULL,
+  `Mitcsinalt` varchar(100) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT 
+
+NULL,
+  `Date` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL 
+
+DEFAULT 'none',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 
+
+AUTO_INCREMENT=0;
+
+CREATE TABLE IF NOT EXISTS `Passwordban` (
+  `Name` varchar(24) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL,
+  `Password` varchar(145) NOT NULL
+) ENGINE=MyISAM 
+
+DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `quests` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` 
+
+varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `QuestID` int(11) 
+
+NOT NULL,
+  `QuestName` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT 
+
+NULL,
+  `QuestPart` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  
+
+DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+
+
+
+CREATE TABLE IF NOT EXISTS `skills` (
+  `Name` varchar(24) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL,
+  `Skillpoints` int(11) NOT NULL,
+  `Skill1Level` int(11) 
+
+NOT NULL DEFAULT '0',
+  `Skill2Level` int(11) NOT NULL DEFAULT '0',
+  `Skill3Level` 
+
+int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `houseobjects` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  
+
+`slot` int(11) NOT NULL,
+  `houseID` int(11) NOT NULL,
+  `VW` int(3) NOT NULL,
+  
+
+`objectID` int(11) NOT NULL,
+  `Nev` varchar(64) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL,
+  `X` float NOT NULL,
+  `Y` float NOT NULL,
+  `Z` float NOT 
+
+NULL,
+  `rX` float NOT NULL,
+  `rY` float NOT NULL,
+  `rZ` float NOT NULL,
+  PRIMARY KEY 
+
+(`ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` 
+
+varchar(24) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `Password` 
+
+varchar(145) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `IP` varchar(30) 
+
+CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `Money` int(10) NOT NULL,
+  
+
+`Bank` int(10) NOT NULL,
+  `Kills` int(4) NOT NULL,
+  `Deaths` int(4) NOT NULL,
+  
+
+`Level` int(1) NOT NULL,
+  `Team` int(2) NOT NULL,
+  `Skin` int(3) NOT NULL,
+  
+
+`RendorTP` int(4) NOT NULL,
+  `KatonaTP` int(11) NOT NULL,
+  `BankosTP` int(11) NOT 
+
+NULL,
+  `KamrovidTP` int(11) NOT NULL,
+  `KamhosszuTP` int(11) NOT NULL,
+  `Spawn` int
+
+(1) NOT NULL,
+  `Banned` int(1) NOT NULL,
+  `BanReason` varchar(128) CHARACTER SET utf8 
+
+COLLATE utf8_hungarian_ci NOT NULL DEFAULT '0',
+  `Ora` int(6) NOT NULL,
+  `Perc` int
+
+(2) NOT NULL,
+  `Leader` int(2) NOT NULL,
+  `AJtime` int(5) NOT NULL,
+  `AJReason` 
+
+varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'Nincs',
+  
+
+`Sskin` int(1) NOT NULL,
+  `Clan` varchar(30) CHARACTER SET utf8 COLLATE 
+
+utf8_hungarian_ci NOT NULL DEFAULT 'None',
+  `ClanRank` int(1) NOT NULL,
+  `VIP` int
+
+(11) NOT NULL,
+  `Szint` int(11) NOT NULL,
+  `EXP` int(11) NOT NULL,
+  `Megjegyzes` 
+
+varchar(128) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'No 
+
+Comments',
+  `LastLogin` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT 
+
+NULL DEFAULT 'nothing',
+  PRIMARY KEY (`ID`),
+  FULLTEXT KEY `LastLogin` (`LastLogin`)
+) 
+
+ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `zenelistav` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  
+
+`Nev` varchar(100) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `Link` 
+
+varchar(250) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  PRIMARY KEY 
+
+(`ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
